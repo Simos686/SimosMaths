@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimosMaths | Cours de maths du CP à la Terminale</title>
+    
+    <!-- Meta tags pour SEO -->
+    <meta name="description" content="Cours particuliers de mathématiques en ligne avec Simos, professeur expérimenté. Du CP à la Terminale, progressez rapidement en maths.">
+    <meta name="keywords" content="cours maths, professeur maths, soutien scolaire, maths en ligne, CP, collège, lycée, bac maths">
+    <meta name="author" content="Simos ANAGNOSTOU">
+    
+    <!-- Google AdSense (à configurer avec votre ID) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-VOTRE_ID" crossorigin="anonymous"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* AdSense container */
+        .ads-container {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 30px auto;
+        }
+        
+        /* Cookie Banner */
+        #cookieBanner {
+            transition: transform 0.5s ease;
+        }
+        
+        /* Loading spinner */
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Cookie Banner (simplifié) -->
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 transform translate-y-full">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="mb-4 md:mb-0 text-sm">
+                🍪 Ce site utilise des cookies pour améliorer votre expérience.
+                <a href="privacy.html" class="text-blue-300 hover:underline">En savoir plus</a>
+            </p>
+            <div class="flex space-x-3">
+                <button onclick="acceptCookies()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium">
+                    Accepter
+                </button>
+                <button onclick="hideCookieBanner()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium">
+                    Refuser
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Simple -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold gradient-text">SimosMaths</span>
+                            <div class="text-xs text-gray-500 -mt-1">Cours de maths en ligne</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                    <a href="#method" class="text-gray-700 hover:text-blue-600 font-medium">Méthode</a>
+                    <a href="#levels" class="text-gray-700 hover:text-blue-600 font-medium">Niveaux</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-blue-600 font-medium">Cours particuliers</a>
+                    <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:shadow-lg pulse-animation">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+                
+                <!-- Menu Mobile Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                <a href="#method" class="block text-gray-700 hover:text-blue-600 font-medium">Méthode</a>
+                <a href="#levels" class="block text-gray-700 hover:text-blue-600 font-medium">Niveaux</a>
+                <a href="#pricing" class="block text-gray-700 hover:text-blue-600 font-medium">Cours particuliers</a>
+                <a href="#contact" class="block py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg font-bold">
+                    Prendre contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 pb-20 md:pb-32 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    Votre enfant a des 
+                    <span class="gradient-text">difficultés en maths</span> ?
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+                    Simos, professeur particulier de mathématiques, aide les élèves du CP à la Terminale 
+                    à <strong class="text-blue-600">comprendre, progresser et réussir</strong>.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                    <a href="#contact" class="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105">
+                        <i class="fas fa-calendar-check mr-3"></i>Réserver un cours d'essai
+                    </a>
+                    <a href="#method" class="px-10 py-4 bg-white border-2 border-blue-200 text-blue-700 text-lg font-bold rounded-xl hover:bg-blue-50 transition">
+                        <i class="fas fa-play-circle mr-3"></i>Découvrir ma méthode
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">+15</div>
+                        <div class="text-gray-600">Élèves accompagnés</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2">+2,3</div>
+                        <div class="text-gray-600">Points de moyenne gagnés</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2">98%</div>
+                        <div class="text-gray-600">De réussite au bac</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-orange-600 mb-2">3</div>
+                        <div class="text-gray-600">Ans d'expérience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AdSense Banner 1 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
+        <div class="ads-container">
+            <div class="text-gray-500 mb-2">
+                <i class="fas fa-ad mr-2"></i>Publicité
+            </div>
+            <!-- Votre code AdSense ici -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-VOTRE_ID"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Niveaux d'enseignement -->
+    <section id="levels" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+                Cours adaptés à chaque niveau
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Primaire -->
+                <div class="bg-gradient-to-b from-blue-50 to-white rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pencil-alt text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Primaire</h3>
+                        <div class="text-blue-600 font-medium mb-4">CP - CM2</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Apprentissage ludique des bases</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Tables de multiplication</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Résolution de problèmes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Géométrie simple</span>
+                        </li>
+                    </ul>
+                    <a href="primaire.html" class="block w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold rounded-xl hover:shadow-lg transition">
+                        Voir
+                    </a>
+                </div>
+                
+                <!-- Collège -->
+                <div class="bg-gradient-to-b from-purple-50 to-white rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calculator text-purple-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Collège</h3>
+                        <div class="text-purple-600 font-medium mb-4">6ème - 3ème</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Algèbre et géométrie</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Préparation au Brevet</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Théorèmes fondamentaux</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Calcul littéral</span>
+                        </li>
+                    </ul>
+                    <a href="college.html" class="block w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold rounded-xl hover:shadow-lg transition">
+                        Voir
+                    </a>
+                </div>
+                
+                <!-- Lycée -->
+                <div class="bg-gradient-to-b from-indigo-50 to-white rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-indigo-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Lycée</h3>
+                        <div class="text-indigo-600 font-medium mb-4">2nde - Terminale</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Fonctions et dérivées</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Probabilités</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Préparation au Bac</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Spécialité maths</span>
+                        </li>
+                    </ul>
+                    <a href="lycee.html" class="block w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold rounded-xl hover:shadow-lg transition">
+                        Voir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ma méthode -->
+    <section id="method" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+                Ma méthode d'enseignement
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Image/Illustration -->
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-2">
+                        <div class="bg-white rounded-2xl p-6">
+                            <div class="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-chalkboard-teacher text-6xl text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating elements -->
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-yellow-100 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-3xl text-yellow-600"></i>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-green-100 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-rocket text-3xl text-green-600"></i>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user-check text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Approche personnalisée</h3>
+                                <p class="text-gray-600">J'adapte mes cours au rythme et aux difficultés spécifiques de chaque élève.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-brain text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Compréhension profonde</h3>
+                                <p class="text-gray-600">Je m'assure que les concepts sont vraiment compris, pas seulement mémorisés.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chart-line text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Progression mesurée</h3>
+                                <p class="text-gray-600">Des bilans réguliers pour visualiser les progrès et ajuster l'enseignement.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-gamepad text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Pédagogie active</h3>
+                                <p class="text-gray-600">Exercices interactifs et mises en situation pour un apprentissage vivant.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+                Ce que disent les parents
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Témoignage 1 -->
+                <div class="bg-gradient-to-b from-blue-50 to-white rounded-2xl p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">M</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Marie D.</div>
+                            <div class="text-gray-500 text-sm">Maman de Lucas, 5ème</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Simos a transformé la relation de mon fils avec les maths. De 8/20, il est passé à 15/20 en seulement 3 mois. Les explications sont claires et patientes."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 2 -->
+                <div class="bg-gradient-to-b from-purple-50 to-white rounded-2xl p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">P</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Pierre L.</div>
+                            <div class="text-gray-500 text-sm">Papa de Sophie, Terminale</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Grâce à Simos, ma fille a obtenu 16/20 en maths au bac. Sa méthode de préparation était parfaite, avec des exercices ciblés et des conseils précieux."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 3 -->
+                <div class="bg-gradient-to-b from-green-50 to-white rounded-2xl p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">S</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Sarah K.</div>
+                            <div class="text-gray-500 text-sm">Maman de Tom, CM1</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Mon fils détestait les maths. Maintenant, il attend les cours avec impatience ! Simos a su le motiver avec des jeux et des défis adaptés à son âge."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AdSense Banner 2 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
+        <div class="ads-container">
+            <div class="text-gray-500 mb-2">
+                <i class="fas fa-ad mr-2"></i>Publicité
+            </div>
+            <!-- Votre code AdSense ici -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-gw-3+1f-3d+2z"
+                data-ad-client="ca-pub-VOTRE_ID"
+                data-ad-slot="0987654321"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Tarifs/Cours particuliers -->
+    <section id="pricing" class="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+                Cours particuliers en ligne
+            </h2>
+            <p class="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+                Des séances individuelles adaptées aux besoins de votre enfant
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Forfait Découverte -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Forfait Découverte</h3>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-5xl font-bold text-gray-900">25€</span>
+                        </div>
+                        <p class="text-gray-500 mt-2">pour 1 heure de cours</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Évaluation initiale</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Séance individuelle de 1h</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Supports personnalisés</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Exercices ciblés</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold rounded-xl hover:shadow-lg transition">
+                        Réserver une séance
+                    </a>
+                </div>
+                
+                <!-- Forfait Progression (Featured) -->
+                <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-300 rounded-2xl shadow-xl p-8 card-hover relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-bold">
+                            Le plus choisi
+                        </div>
+                    </div>
+                    <div class="text-center mb-8 pt-4">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Forfait Progression</h3>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-5xl font-bold text-gray-900">90€</span>
+                        </div>
+                        <p class="text-gray-500 mt-2">pour 4 heures de cours</p>
+                        <div class="text-green-600 font-medium mt-2">Économisez 10€</div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span><strong>4 séances de 1h</strong></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Programme personnalisé</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Bilan intermédiaire</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Contact entre les séances</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Supports de révision</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center font-bold rounded-xl hover:shadow-xl transition">
+                        Choisir ce forfait
+                    </a>
+                </div>
+                
+                <!-- Forfait Excellence -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Forfait Excellence</h3>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-5xl font-bold text-gray-900">200€</span>
+                        </div>
+                        <p class="text-gray-500 mt-2">pour 10 heures de cours</p>
+                        <div class="text-green-600 font-medium mt-2">Économisez 50€</div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span><strong>10 séances de 1h</strong></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Suivi complet sur 2-3 mois</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Préparation aux examens</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Bilans réguliers détaillés</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Priorité pour les RDV</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center font-bold rounded-xl hover:shadow-lg transition">
+                        Opter pour l'excellence
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    <strong>Première séance à 20€ seulement !</strong> Pour faire connaissance et définir un plan d'action.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact avec FormSubmit -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Réservez un cours avec Simos
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Discutons des besoins de votre enfant et planifions un premier cours d'essai
+                </p>
+            </div>
+
+            <!-- Messages d'état -->
+            <div id="successMessage" class="hidden bg-green-50 border-l-4 border-green-500 p-6 mb-8 rounded-r-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-500 text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="font-bold text-green-800 text-lg">Message envoyé avec succès !</h3>
+                        <p class="text-green-700 mt-1">Je vous réponds dans les 24h. Vérifiez votre boîte email.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="hidden bg-red-50 border-l-4 border-red-500 p-6 mb-8 rounded-r-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-circle text-red-500 text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="font-bold text-red-800 text-lg">Erreur lors de l'envoi</h3>
+                        <p id="errorText" class="text-red-700 mt-1"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div id="loadingSpinner" class="hidden text-center py-10">
+                <div class="inline-block w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full loading-spinner mb-4"></div>
+                <p class="text-gray-600 font-medium">Envoi en cours...</p>
+            </div>
+
+            <!-- FORMULAIRE FORM SUBMIT -->
+            <form 
+                action="https://formsubmit.co/anagnostou.simos@gmail.com" 
+                method="POST"
+                id="contactForm"
+                class="bg-white rounded-2xl shadow-xl p-6 md:p-10 space-y-8"
+            >
+                <!-- Configuration FormSubmit -->
+                <input type="hidden" name="_subject" value="📚 Nouvelle demande de cours - SimosMaths">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+                <input type="text" name="_honey" style="display:none">
+                
+                <!-- Informations parent -->
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center">
+                        <i class="fas fa-user-circle mr-3"></i>Informations parent
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Prénom -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-3">
+                                <i class="fas fa-user mr-2 text-blue-600"></i>Votre prénom *
+                            </label>
+                            <input type="text" 
+                                   name="Prénom" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                   placeholder="Ex: Marie">
+                        </div>
+                        
+                        <!-- Nom -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-3">
+                                <i class="fas fa-user mr-2 text-blue-600"></i>Votre nom *
+                            </label>
+                            <input type="text" 
+                                   name="Nom" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                   placeholder="Ex: Dubois">
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-3">
+                                <i class="fas fa-envelope mr-2 text-blue-600"></i>Votre email *
+                            </label>
+                            <input type="email" 
+                                   name="Email" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                   placeholder="votre@email.com">
+                        </div>
+                        
+                        <!-- Téléphone -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-3">
+                                <i class="fas fa-phone mr-2 text-blue-600"></i>Téléphone *
+                            </label>
+                            <input type="tel" 
+                                   name="Téléphone" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                   placeholder="06 12 34 56 78">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informations enfant -->
+                <div class="bg-purple-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-purple-900 mb-6 flex items-center">
+                        <i class="fas fa-child mr-3"></i>Informations élève
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Prénom enfant -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-3">
+                                <i class="fas fa-child mr-2 text-purple-600"></i>Prénom de l'enfant *
+                            </label>
+                            <input type="text" 
+                                   name="Prénom de l'enfant" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+                                   placeholder="Ex: Lucas">
+                        </div>
+                        
+                        <!-- Niveau scolaire -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-3">
+                                <i class="fas fa-graduation-cap mr-2 text-purple-600"></i>Niveau scolaire *
+                            </label>
+                            <select name="Niveau scolaire" 
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition">
+                                <option value="">Sélectionnez un niveau</option>
+                                <option value="CP">CP</option>
+                                <option value="CE1">CE1</option>
+                                <option value="CE2">CE2</option>
+                                <option value="CM1">CM1</option>
+                                <option value="CM2">CM2</option>
+                                <option value="6ème">6ème</option>
+                                <option value="5ème">5ème</option>
+                                <option value="4ème">4ème</option>
+                                <option value="3ème">3ème</option>
+                                <option value="2nde">2nde</option>
+                                <option value="1ère">1ère</option>
+                                <option value="Terminale">Terminale</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Difficultés -->
+                <div class="bg-yellow-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-yellow-900 mb-6 flex items-center">
+                        <i class="fas fa-chart-line mr-3"></i>Situation actuelle
+                    </h3>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-3">
+                            <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i>Quelles difficultés rencontre votre enfant ? *
+                        </label>
+                        <textarea name="Difficultés" 
+                                  rows="4"
+                                  required
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"
+                                  placeholder="Ex: Difficultés avec les fractions, problèmes de compréhension des énoncés, manque de confiance en mathématiques..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Forfait -->
+                <div class="bg-green-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-green-900 mb-6 flex items-center">
+                        <i class="fas fa-calendar-check mr-3"></i>Forfait souhaité
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Forfait Découverte -->
+                        <label class="relative cursor-pointer">
+                            <input type="radio" 
+                                   name="Forfait" 
+                                   value="Découverte (25€ - 1 heure)" 
+                                   class="sr-only peer">
+                            <div class="bg-white p-5 rounded-xl border-2 border-gray-300 peer-checked:border-green-500 peer-checked:bg-green-100 transition-all">
+                                <div class="font-bold text-gray-900">Découverte</div>
+                                <div class="text-sm text-gray-600 mt-1">25€ - 1 heure</div>
+                                <div class="absolute top-3 right-3 w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-green-500 peer-checked:bg-green-500"></div>
+                            </div>
+                        </label>
+                        
+                        <!-- Forfait Progression -->
+                        <label class="relative cursor-pointer">
+                            <input type="radio" 
+                                   name="Forfait" 
+                                   value="Progression (90€ - 4 heures)" 
+                                   checked
+                                   class="sr-only peer">
+                            <div class="bg-white p-5 rounded-xl border-2 border-gray-300 peer-checked:border-blue-500 peer-checked:bg-blue-100 transition-all">
+                                <div class="font-bold text-gray-900">Progression</div>
+                                <div class="text-sm text-gray-600 mt-1">90€ - 4 heures</div>
+                                <div class="absolute top-3 right-3 w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:bg-blue-500"></div>
+                            </div>
+                        </label>
+                        
+                        <!-- Forfait Excellence -->
+                        <label class="relative cursor-pointer">
+                            <input type="radio" 
+                                   name="Forfait" 
+                                   value="Excellence (200€ - 10 heures)" 
+                                   class="sr-only peer">
+                            <div class="bg-white p-5 rounded-xl border-2 border-gray-300 peer-checked:border-purple-500 peer-checked:bg-purple-100 transition-all">
+                                <div class="font-bold text-gray-900">Excellence</div>
+                                <div class="text-sm text-gray-600 mt-1">200€ - 10 heures</div>
+                                <div class="absolute top-3 right-3 w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-purple-500 peer-checked:bg-purple-500"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Consentement -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-start">
+                        <input type="checkbox" 
+                               name="Consentement" 
+                               value="Accepté"
+                               required
+                               class="mt-1 mr-4 h-5 w-5 text-blue-600">
+                        <div>
+                            <label for="consentement" class="text-gray-700 font-medium cursor-pointer">
+                                J'accepte que mes données soient utilisées pour traiter ma demande *
+                            </label>
+                            <p class="text-gray-600 text-sm mt-2">
+                                Vos informations restent confidentielles. Je ne partage pas vos données avec des tiers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <div class="text-center pt-6">
+                    <button type="submit" 
+                            id="submitButton"
+                            class="px-12 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-bold rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-paper-plane mr-3"></i>Envoyer ma demande de cours
+                    </button>
+                    
+                    <p class="text-gray-500 text-sm mt-4">
+                        <i class="fas fa-shield-alt mr-2"></i>Réponse garantie sous 24h
+                    </p>
+                </div>
+            </form>
+
+            <!-- Contact direct -->
+            <div class="mt-12 pt-10 border-t border-gray-200">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact direct</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                        <div class="p-6 bg-white rounded-xl shadow-md">
+                            <i class="fas fa-envelope text-blue-600 text-3xl mb-4"></i>
+                            <div class="font-bold text-gray-900 mb-2">Email</div>
+                            <a href="mailto:anagnostou.simos@gmail.com" class="text-blue-600 hover:underline break-all">
+                                anagnostou.simos@gmail.com
+                            </a>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl shadow-md">
+                            <i class="fas fa-phone text-green-600 text-3xl mb-4"></i>
+                            <div class="font-bold text-gray-900 mb-2">Téléphone</div>
+                            <div class="text-gray-700">Sur rendez-vous uniquement</div>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl shadow-md">
+                            <i class="fas fa-clock text-purple-600 text-3xl mb-4"></i>
+                            <div class="font-bold text-gray-900 mb-2">Disponibilité</div>
+                            <div class="text-gray-700">Lun-Ven: 9h-19h</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo et description -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">SimosMaths</div>
+                            <div class="text-sm opacity-80">Cours de maths en ligne</div>
+                        </div>
+                    </div>
+                    <p class="opacity-80 mb-6">
+                        Professeur particulier de mathématiques, ancien élève de prépa MPSI.
+                        Spécialisé dans l'accompagnement des élèves du CP à la Terminale.
+                    </p>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Accès rapide</h4>
+                    <ul class="space-y-3 opacity-80">
+                        <li><a href="index.html" class="hover:text-blue-300">Accueil</a></li>
+                        <li><a href="#method" class="hover:text-blue-300">Ma méthode</a></li>
+                        <li><a href="#levels" class="hover:text-blue-300">Niveaux</a></li>
+                        <li><a href="#pricing" class="hover:text-blue-300">Tarifs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Ressources -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Ressources gratuites</h4>
+                    <ul class="space-y-3 opacity-80">
+                        <li><a href="exercices.html" class="hover:text-blue-300">Exercices gratuits</a></li>
+                        <li><a href="fiches.html" class="hover:text-blue-300">Fiches de révision</a></li>
+                        <li><a href="blog.html" class="hover:text-blue-300">Conseils pédagogiques</a></li>
+                        <li><a href="video.html" class="hover:text-blue-300">Vidéos explicatives</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4 opacity-80">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <a href="mailto:anagnostou.simos@gmail.com" class="hover:text-blue-300">
+                                anagnostou.simos@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-400"></i>
+                            <span>Sur rendez-vous uniquement</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-red-400"></i>
+                            <span>Cours en ligne (visio)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="opacity-80 mb-4 md:mb-0">
+                    © 2024 SimosMaths. Tous droits réservés.
+                </div>
+                <div class="flex space-x-6 opacity-80">
+                    <a href="mentions-legales.html" class="hover:text-blue-300">Mentions légales</a>
+                    <a href="privacy.html" class="hover:text-blue-300">Confidentialité</a>
+                    <a href="cgu.html" class="hover:text-blue-300">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Cookies
+        function acceptCookies() {
+            localStorage.setItem('simosmaths_cookies', 'accepted');
+            hideCookieBanner();
+        }
+        
+        function hideCookieBanner() {
+            document.getElementById('cookieBanner').classList.add('translate-y-full');
+        }
+        
+        // Afficher le cookie banner après 2s si pas déjà accepté
+        setTimeout(() => {
+            if (!localStorage.getItem('simosmaths_cookies')) {
+                document.getElementById('cookieBanner').classList.remove('translate-y-full');
+            }
+        }, 2000);
+        
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+        
+        // Fermer menu mobile au clic sur un lien
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+        
+        // Observer les cartes
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+        
+        // Charger AdSense
+        setTimeout(() => {
+            if (typeof adsbygoogle !== 'undefined') {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }, 1000);
+        
+        // Gestion du formulaire FormSubmit
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            
+            // Validation en temps réel
+            const inputs = contactForm.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                input.addEventListener('input', function() {
+                    clearFieldError(this);
+                });
+            });
+            
+            function validateField(field) {
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    showFieldError(field, 'Ce champ est obligatoire');
+                    return false;
+                }
+                
+                if (field.type === 'email' && field.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        showFieldError(field, 'Email invalide');
+                        return false;
+                    }
+                }
+                
+                if (field.type === 'tel' && field.value) {
+                    const phoneRegex = /^[0-9\s\-\+\(\)\.]{10,}$/;
+                    if (!phoneRegex.test(field.value.replace(/\s/g, ''))) {
+                        showFieldError(field, 'Numéro de téléphone invalide');
+                        return false;
+                    }
+                }
+                
+                clearFieldError(field);
+                return true;
+            }
+            
+            function showFieldError(field, message) {
+                clearFieldError(field);
+                field.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'text-red-500 text-sm mt-1';
+                errorDiv.textContent = message;
+                
+                field.parentNode.appendChild(errorDiv);
+            }
+            
+            function clearFieldError(field) {
+                field.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+                
+                const existingError = field.parentNode.querySelector('.text-red-500');
+                if (existingError) {
+                    existingError.remove();
+                }
+            }
+            
+            // Soumission du formulaire
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Masquer les messages précédents
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+                
+                // Valider tous les champs
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        isValid = false;
+                    }
+                });
+                
+                if (!isValid) {
+                    errorText.textContent = 'Veuillez corriger les erreurs dans le formulaire.';
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+                
+                // Afficher le loading
+                loadingSpinner.classList.remove('hidden');
+                
+                // Soumettre le formulaire via FormSubmit
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Succès
+                        successMessage.classList.remove('hidden');
+                        contactForm.reset();
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Cacher le message après 10 secondes
+                        setTimeout(() => {
+                            successMessage.classList.add('hidden');
+                        }, 10000);
+                    } else {
+                        // Erreur
+                        errorText.textContent = 'Une erreur est survenue. Veuillez réessayer ou contactez-moi directement par email.';
+                        errorMessage.classList.remove('hidden');
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                })
+                .catch(error => {
+                    // Erreur réseau
+                    errorText.textContent = 'Erreur de connexion. Veuillez réessayer ou contactez-moi directement par email.';
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    console.error('Erreur d\'envoi:', error);
+                })
+                .finally(() => {
+                    // Masquer le loading
+                    loadingSpinner.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
