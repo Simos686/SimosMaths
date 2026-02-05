@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours de Maths CP | Programme Complet CP | SimosMaths</title>
+    
+    <!-- Meta tags pour SEO -->
+    <meta name="description" content="Programme complet de mathématiques pour le CP : nombres jusqu'à 100, addition, soustraction, géométrie, grandeurs et mesures. Cours particuliers adaptés.">
+    <meta name="keywords" content="programme maths CP, cours maths CP, nombres CP, addition CP, soustraction CP, géométrie CP, grandeurs CP, résolution problèmes CP">
+    <meta name="author" content="Simos ANAGNOSTOU">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .chapter-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chapter-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        
+        .competence-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid #4f46e5;
+        }
+        
+        .activity-example {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            border: 2px solid #3b82f6;
+        }
+        
+        .progress-step {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+        
+        .progress-step::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .easy { background: #d1fae5; color: #065f46; }
+        .medium { background: #fef3c7; color: #92400e; }
+        .hard { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold gradient-text">SimosMaths</span>
+                            <div class="text-xs text-gray-500 -mt-1">Cours de maths en ligne</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                    <a href="primaire.html" class="text-gray-700 hover:text-blue-600 font-medium">Primaire</a>
+                    <a href="college.html" class="text-gray-700 hover:text-blue-600 font-medium">Collège</a>
+                    <a href="lycee.html" class="text-gray-700 hover:text-blue-600 font-medium">Lycée</a>
+                    <a href="index.html#contact" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:shadow-lg">
+                        <i class="fas fa-envelope mr-2"></i>Réserver un cours
+                    </a>
+                </div>
+                
+                <!-- Menu Mobile Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                <a href="primaire.html" class="block text-gray-700 hover:text-blue-600 font-medium">Primaire</a>
+                <a href="college.html" class="block text-gray-700 hover:text-blue-600 font-medium">Collège</a>
+                <a href="lycee.html" class="block text-gray-700 hover:text-blue-600 font-medium">Lycée</a>
+                <a href="index.html#contact" class="block py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg font-bold">
+                    Réserver un cours
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu de navigation des classes -->
+    <div class="bg-gradient-to-r from-blue-50 to-purple-50 border-b border-blue-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-4">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">CP</span>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-900">Cours Préparatoire - Programme Complet</h2>
+                                <p class="text-sm text-gray-600">Cycle 2 - Âge : 6-7 ans</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="cp.html" class="px-4 py-2 bg-blue-100 border-2 border-blue-300 text-blue-700 rounded-lg font-bold flex items-center">
+                            <i class="fas fa-child mr-2"></i>CP
+                        </a>
+                        <a href="ce1.html" class="px-4 py-2 bg-white border border-blue-200 text-blue-700 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition flex items-center">
+                            <i class="fas fa-child mr-2"></i>CE1
+                        </a>
+                        <a href="ce2.html" class="px-4 py-2 bg-white border border-blue-200 text-blue-700 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition flex items-center">
+                            <i class="fas fa-child mr-2"></i>CE2
+                        </a>
+                        <a href="cm1.html" class="px-4 py-2 bg-white border border-blue-200 text-blue-700 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition flex items-center">
+                            <i class="fas fa-child mr-2"></i>CM1
+                        </a>
+                        <a href="cm2.html" class="px-4 py-2 bg-white border border-blue-200 text-blue-700 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition flex items-center">
+                            <i class="fas fa-child mr-2"></i>CM2
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Programme CP -->
+    <section class="pt-12 pb-8 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Programme complet de <span class="gradient-text">Mathématiques CP</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Découverte des nombres jusqu'à 100, premières opérations et initiation à la géométrie
+                </p>
+                
+                <!-- Stats CP -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-12">
+                    <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-blue-600 mb-2">0 → 100</div>
+                        <div class="text-gray-600">Nombres étudiés</div>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-purple-600 mb-2">2</div>
+                        <div class="text-gray-600">Opérations apprises</div>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-green-600 mb-2">4</div>
+                        <div class="text-gray-600">Domaines mathématiques</div>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-orange-600 mb-2">180h</div>
+                        <div class="text-gray-600">Environ sur l'année</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme détaillé -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Introduction -->
+            <div class="mb-16">
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-info-circle text-blue-600 mr-3"></i>
+                        Objectifs du CP en mathématiques
+                    </h2>
+                    <p class="text-gray-700 mb-4">
+                        En CP, votre enfant quitte la maternelle et commence véritablement l'apprentissage structuré des mathématiques. 
+                        Il va construire des bases solides qui lui serviront tout au long de sa scolarité.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-white rounded-xl p-6">
+                            <h3 class="font-bold text-gray-900 mb-3 flex items-center">
+                                <i class="fas fa-brain text-blue-500 mr-2"></i>
+                                Compétences transversales
+                            </h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Développer la pensée logique</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Apprendre à résoudre des problèmes simples</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Acquérir des méthodes de travail</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-xl p-6">
+                            <h3 class="font-bold text-gray-900 mb-3 flex items-center">
+                                <i class="fas fa-graduation-cap text-purple-500 mr-2"></i>
+                                Préparation au CE1
+                            </h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Automatiser les bases du calcul</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Comprendre le système décimal</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Développer la confiance en soi</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapitre 1 : Nombres et Calcul -->
+            <div class="chapter-card" style="border-left-color: #4f46e5;">
+                <div class="flex items-start mb-6">
+                    <div class="chapter-number" style="background: #4f46e5;">1</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Chapitre 1 : Nombres et Calcul</h2>
+                        <p class="text-gray-600">Découverte des nombres jusqu'à 100 et premières opérations</p>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- 1.1 Connaissance des nombres -->
+                    <div class="competence-item">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">1.1</span>
+                            Connaissance des nombres jusqu'à 100
+                            <span class="difficulty-badge easy">Fondamental</span>
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-3">Compétences attendues</h4>
+                                <ul class="space-y-2">
+                                    <li class="progress-step">Écrire les nombres en chiffres et en lettres</li>
+                                    <li class="progress-step">Dénombrer des collections jusqu'à 30</li>
+                                    <li class="progress-step">Comparer et ranger les nombres</li>
+                                    <li class="progress-step">Comprendre la notion d'unités et de dizaines</li>
+                                    <li class="progress-step">Connaître la suite numérique jusqu'à 100</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-3">Progression sur l'année</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm text-gray-600">Période 1 : jusqu'à 20</span>
+                                            <span class="text-sm text-gray-600">Sept-Oct</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-600 h-2 rounded-full" style="width: 25%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm text-gray-600">Période 2 : jusqu'à 50</span>
+                                            <span class="text-sm text-gray-600">Nov-Déc</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-600 h-2 rounded-full" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm text-gray-600">Période 3 : jusqu'à 100</span>
+                                            <span class="text-sm text-gray-600">Janv-Mars</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exemple d'activité -->
+                        <div class="activity-example mt-6">
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center">
+                                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                Exemple d'activité : La file numérique
+                            </h4>
+                            <p class="text-gray-700 mb-3">
+                                L'enfant dispose d'une file numérique de 0 à 100. Il doit :
+                            </p>
+                            <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                                <li>Trouver un nombre caché</li>
+                                <li>Placer des étiquettes-nombres au bon endroit</li>
+                                <li>Compter de 2 en 2, de 5 en 5, de 10 en 10</li>
+                                <li>Trouver le nombre qui vient avant/après</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- 1.2 Addition et Soustraction -->
+                    <div class="competence-item">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mr-3">1.2</span>
+                            Addition et Soustraction
+                            <span class="difficulty-badge medium">À maîtriser</span>
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-3">Notions abordées</h4>
+                                <ul class="space-y-3">
+                                    <li>
+                                        <strong class="text-purple-600">Addition :</strong>
+                                        <ul class="mt-2 space-y-1 pl-5">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-plus text-green-500 mr-2 mt-1"></i>
+                                                <span>Somme de deux nombres ≤ 10</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-plus text-green-500 mr-2 mt-1"></i>
+                                                <span>Addition avec passage par 10</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-plus text-green-500 mr-2 mt-1"></i>
+                                                <span>Poser une addition en colonne</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong class="text-purple-600">Soustraction :</strong>
+                                        <ul class="mt-2 space-y-1 pl-5">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-minus text-red-500 mr-2 mt-1"></i>
+                                                <span>Retirer, enlever, trouver ce qui reste</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-minus text-red-500 mr-2 mt-1"></i>
+                                                <span>Complément à 10</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-minus text-red-500 mr-2 mt-1"></i>
+                                                <span>Poser une soustraction en colonne</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-3">Méthode d'apprentissage</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-blue-50 rounded-lg">
+                                        <h5 class="font-bold text-blue-700 mb-2">Manipulation concrète</h5>
+                                        <p class="text-sm text-gray-600">
+                                            Utilisation de jetons, cubes, bouliers pour comprendre le sens des opérations
+                                        </p>
+                                    </div>
+                                    <div class="p-4 bg-purple-50 rounded-lg">
+                                        <h5 class="font-bold text-purple-700 mb-2">Passage à l'abstrait</h5>
+                                        <p class="text-sm text-gray-600">
+                                            Après manipulation, écriture des opérations et calcul mental
+                                        </p>
+                                    </div>
+                                    <div class="p-4 bg-green-50 rounded-lg">
+                                        <h5 class="font-bold text-green-700 mb-2">Automatisation</h5>
+                                        <p class="text-sm text-gray-600">
+                                            Jeux de calcul rapide, défis chronométrés pour mémoriser les résultats
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table d'addition -->
+                        <div class="activity-example mt-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Table d'addition à connaître en fin de CP</h4>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                    <thead>
+                                        <tr class="bg-blue-50">
+                                            <th class="py-2 px-4 border-b">+</th>
+                                            <th class="py-2 px-4 border-b">0</th>
+                                            <th class="py-2 px-4 border-b">1</th>
+                                            <th class="py-2 px-4 border-b">2</th>
+                                            <th class="py-2 px-4 border-b">3</th>
+                                            <th class="py-2 px-4 border-b">4</th>
+                                            <th class="py-2 px-4 border-b">5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b font-bold">1</td>
+                                            <td class="py-2 px-4 border-b">1</td>
+                                            <td class="py-2 px-4 border-b bg-blue-100 font-bold">2</td>
+                                            <td class="py-2 px-4 border-b">3</td>
+                                            <td class="py-2 px-4 border-b">4</td>
+                                            <td class="py-2 px-4 border-b">5</td>
+                                            <td class="py-2 px-4 border-b">6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b font-bold">2</td>
+                                            <td class="py-2 px-4 border-b">2</td>
+                                            <td class="py-2 px-4 border-b">3</td>
+                                            <td class="py-2 px-4 border-b bg-blue-100 font-bold">4</td>
+                                            <td class="py-2 px-4 border-b">5</td>
+                                            <td class="py-2 px-4 border-b">6</td>
+                                            <td class="py-2 px-4 border-b">7</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-4 border-b font-bold">3</td>
+                                            <td class="py-2 px-4 border-b">3</td>
+                                            <td class="py-2 px-4 border-b">4</td>
+                                            <td class="py-2 px-4 border-b">5</td>
+                                            <td class="py-2 px-4 border-b bg-blue-100 font-bold">6</td>
+                                            <td class="py-2 px-4 border-b">7</td>
+                                            <td class="py-2 px-4 border-b">8</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-3">
+                                Les cases en bleu sont les additions fondamentales à connaître par cœur
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 1.3 Résolution de problèmes -->
+                    <div class="competence-item">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mr-3">1.3</span>
+                            Résolution de problèmes simples
+                            <span class="difficulty-badge hard">À développer</span>
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <p class="text-gray-700">
+                                La résolution de problèmes est au cœur des mathématiques au CP. L'enfant apprend à :
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="p-4 bg-white border border-gray-200 rounded-lg">
+                                    <h4 class="font-bold text-gray-900 mb-2">1. Comprendre l'énoncé</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>Identifier les données</li>
+                                        <li>Repérer la question</li>
+                                        <li>Visualiser la situation</li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 bg-white border border-gray-200 rounded-lg">
+                                    <h4 class="font-bold text-gray-900 mb-2">2. Choisir l'opération</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>Addition (ajouter, réunir)</li>
+                                        <li>Soustraction (retirer, comparer)</li>
+                                        <li>Partage (division simple)</li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 bg-white border border-gray-200 rounded-lg">
+                                    <h4 class="font-bold text-gray-900 mb-2">3. Vérifier et expliquer</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>Contrôler le résultat</li>
+                                        <li>Rédiger une réponse</li>
+                                        <li>Justifier sa démarche</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Exemples de problèmes -->
+                            <div class="activity-example">
+                                <h4 class="font-bold text-gray-900 mb-3">Exemples typiques de problèmes CP</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-white rounded-lg border border-blue-100">
+                                        <p class="text-gray-700 mb-2">
+                                            <strong>Problème d'addition :</strong> "Lucas a 4 billes. Sa sœur lui en donne 3. Combien a-t-il de billes maintenant ?"
+                                        </p>
+                                        <div class="text-sm text-blue-600">4 + 3 = 7</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg border border-red-100">
+                                        <p class="text-gray-700 mb-2">
+                                            <strong>Problème de soustraction :</strong> "Il y avait 8 fleurs dans le vase. 3 fleurs sont fanées. Combien reste-t-il de fleurs ?"
+                                        </p>
+                                        <div class="text-sm text-red-600">8 - 3 = 5</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg border border-green-100">
+                                        <p class="text-gray-700 mb-2">
+                                            <strong>Problème de partage :</strong> "6 bonbons à partager entre 2 enfants. Combien chacun aura-t-il de bonbons ?"
+                                        </p>
+                                        <div class="text-sm text-green-600">6 ÷ 2 = 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="cours-cp-chapitre1.html" class="block w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-center font-bold rounded-xl hover:shadow-lg transition">
+                        Voir
+                    </a>
+            </div>
+
+            <!-- Chapitre 2 : Géométrie -->
+            <div class="chapter-card" style="border-left-color: #10b981;">
+                <div class="flex items-start mb-6">
+                    <div class="chapter-number" style="background: #10b981;">2</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Chapitre 2 : Géométrie</h2>
+                        <p class="text-gray-600">Découverte des formes et de l'espace</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="competence-item">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">2.1 Reconnaissance des formes</h3>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="text-center p-4 bg-white border border-gray-200 rounded-lg">
+                                <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg"></div>
+                                </div>
+                                <div class="font-bold text-gray-900">Carré</div>
+                                <div class="text-sm text-gray-600">4 côtés égaux</div>
+                            </div>
+                            <div class="text-center p-4 bg-white border border-gray-200 rounded-lg">
+                                <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-red-100 rounded-full"></div>
+                                </div>
+                                <div class="font-bold text-gray-900">Cercle</div>
+                                <div class="text-sm text-gray-600">Rond</div>
+                            </div>
+                            <div class="text-center p-4 bg-white border border-gray-200 rounded-lg">
+                                <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                                    <div class="w-0 h-0 border-l-[24px] border-r-[24px] border-b-[32px] border-l-transparent border-r-transparent border-b-green-300"></div>
+                                </div>
+                                <div class="font-bold text-gray-900">Triangle</div>
+                                <div class="text-sm text-gray-600">3 côtés</div>
+                            </div>
+                            <div class="text-center p-4 bg-white border border-gray-200 rounded-lg">
+                                <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                                    <div class="w-16 h-8 bg-purple-100"></div>
+                                </div>
+                                <div class="font-bold text-gray-900">Rectangle</div>
+                                <div class="text-sm text-gray-600">4 côtés</div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-gray-900 mb-3">Compétences travaillées</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Nommer les figures géométriques de base</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Reconnaître ces formes dans l'environnement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Reproduire des figures sur quadrillage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Utiliser le vocabulaire spatial (dessus, dessous, à côté...)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapitre 3 : Grandeurs et Mesures -->
+            <div class="chapter-card" style="border-left-color: #f59e0b;">
+                <div class="flex items-start mb-6">
+                    <div class="chapter-number" style="background: #f59e0b;">3</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Chapitre 3 : Grandeurs et Mesures</h2>
+                        <p class="text-gray-600">Premières notions de mesure et comparaison</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="competence-item">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">3.1 Longueurs, masses et contenances</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="p-4 bg-yellow-50 rounded-lg">
+                                <h4 class="font-bold text-yellow-700 mb-3 flex items-center">
+                                    <i class="fas fa-ruler mr-2"></i>Longueurs
+                                </h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>Comparer des longueurs</li>
+                                    <li>Mesurer avec des bandes unités</li>
+                                    <li>Vocabulaire : plus long, plus court</li>
+                                </ul>
+                            </div>
+                            <div class="p-4 bg-red-50 rounded-lg">
+                                <h4 class="font-bold text-red-700 mb-3 flex items-center">
+                                    <i class="fas fa-weight mr-2"></i>Masses
+                                </h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>Comparer des masses</li>
+                                    <li>Utiliser une balance</li>
+                                    <li>Vocabulaire : plus lourd, plus léger</li>
+                                </ul>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <h4 class="font-bold text-blue-700 mb-3 flex items-center">
+                                    <i class="fas fa-glass-water mr-2"></i>Contenances
+                                </h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>Comparer des contenances</li>
+                                    <li>Transvaser des liquides</li>
+                                    <li>Vocabulaire : plus plein, plus vide</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapitre 4 : Organisation et Gestion de données -->
+            <div class="chapter-card" style="border-left-color: #8b5cf6;">
+                <div class="flex items-start mb-6">
+                    <div class="chapter-number" style="background: #8b5cf6;">4</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Chapitre 4 : Organisation et Gestion de données</h2>
+                        <p class="text-gray-600">Lecture de tableaux et graphiques simples</p>
+                    </div>
+                </div>
+
+                <div class="competence-item">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">4.1 Premières représentations</h3>
+                    
+                    <div class="space-y-4">
+                        <p class="text-gray-700">
+                            Initiation à la lecture et l'interprétation de données simples :
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-3">Tableaux simples</h4>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                        <thead>
+                                            <tr class="bg-purple-50">
+                                                <th class="py-2 px-4 border-b">Enfant</th>
+                                                <th class="py-2 px-4 border-b">Âge</th>
+                                                <th class="py-2 px-4 border-b">Animaux</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Lucas</td>
+                                                <td class="py-2 px-4 border-b">6 ans</td>
+                                                <td class="py-2 px-4 border-b">2</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Chloé</td>
+                                                <td class="py-2 px-4 border-b">7 ans</td>
+                                                <td class="py-2 px-4 border-b">3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-3">Graphiques en barres</h4>
+                                <div class="p-4 bg-gray-50 rounded-lg">
+                                    <p class="text-sm text-gray-600 mb-3">Nombre de fruits par jour :</p>
+                                    <div class="flex items-end space-x-2">
+                                        <div class="text-center">
+                                            <div class="w-8 bg-green-500 h-16"></div>
+                                            <div class="text-xs mt-1">Lundi</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-8 bg-green-500 h-20"></div>
+                                            <div class="text-xs mt-1">Mardi</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-8 bg-green-500 h-12"></div>
+                                            <div class="text-xs mt-1">Mercredi</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Évaluation et progression -->
+            <div class="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                    Évaluation et progression en CP
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Points de vigilance</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-yellow-500 mr-3 mt-1"></i>
+                                <div>
+                                    <span class="font-medium text-gray-900">Confusion des chiffres</span>
+                                    <p class="text-sm text-gray-600">6 et 9, 12 et 21</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-yellow-500 mr-3 mt-1"></i>
+                                <div>
+                                    <span class="font-medium text-gray-900">Inversion addition/soustraction</span>
+                                    <p class="text-sm text-gray-600">Ne pas comprendre quand ajouter ou retirer</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-yellow-500 mr-3 mt-1"></i>
+                                <div>
+                                    <span class="font-medium text-gray-900">Problèmes de dénombrement</span>
+                                    <p class="text-sm text-gray-600">Compter deux fois le même objet</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Indicateurs de réussite</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">Lit et écrit les nombres jusqu'à 100</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">Calcule mentalement des additions simples</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">Résout des problèmes simples de la vie courante</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">Utilise correctement le vocabulaire spatial</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Cours particuliers -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">
+                Besoin d'aide en mathématiques pour votre enfant en CP ?
+            </h2>
+            <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                Des cours particuliers adaptés au rythme de votre enfant pour construire des bases solides
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="index.html#contact" class="px-10 py-4 bg-white text-blue-600 text-lg font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105">
+                    <i class="fas fa-calendar-check mr-3"></i>Réserver un cours d'essai
+                </a>
+                <a href="primaire.html" class="px-10 py-4 bg-transparent border-2 border-white text-white text-lg font-bold rounded-xl hover:bg-white hover:text-blue-600 transition">
+                    <i class="fas fa-arrow-left mr-3"></i>Retour au primaire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo et description -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">SimosMaths</div>
+                            <div class="text-sm opacity-80">Cours de maths en ligne</div>
+                        </div>
+                    </div>
+                    <p class="opacity-80 mb-6">
+                        Spécialiste des cours de mathématiques pour le CP.
+                    </p>
+                </div>
+                
+                <!-- Navigation -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Programmes</h4>
+                    <ul class="space-y-3 opacity-80">
+                        <li><a href="cp.html" class="hover:text-blue-300">CP (cette page)</a></li>
+                        <li><a href="ce1.html" class="hover:text-blue-300">CE1</a></li>
+                        <li><a href="ce2.html" class="hover:text-blue-300">CE2</a></li>
+                        <li><a href="cm1.html" class="hover:text-blue-300">CM1</a></li>
+                        <li><a href="cm2.html" class="hover:text-blue-300">CM2</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4 opacity-80">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <a href="mailto:anagnostou.simos@gmail.com" class="hover:text-blue-300">
+                                anagnostou.simos@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-400"></i>
+                            <span>Sur rendez-vous uniquement</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Liens rapides</h4>
+                    <ul class="space-y-3 opacity-80">
+                        <li><a href="primaire.html" class="hover:text-blue-300">Toutes les classes primaire</a></li>
+                        <li><a href="index.html" class="hover:text-blue-300">Accueil principal</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-300">Réserver un cours</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center opacity-80">
+                © 2024 SimosMaths. Programme officiel de mathématiques pour le CP.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+        
+        // Fermer menu mobile au clic sur un lien
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

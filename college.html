@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours de Maths Collège | SimosMaths - Choix de la classe</title>
+    
+    <!-- Meta tags pour SEO -->
+    <meta name="description" content="Choisissez la classe de votre enfant au collège : 6ème, 5ème, 4ème ou 3ème. Cours de maths adaptés à chaque niveau, préparation Brevet.">
+    <meta name="keywords" content="cours maths collège, choisir classe, 6ème, 5ème, 4ème, 3ème, préparation Brevet, algèbre, géométrie">
+    <meta name="author" content="Simos ANAGNOSTOU">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .class-card {
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .level-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cycle-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f5f3ff, #fae8ff);
+            border: 2px solid #8b5cf6;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #7c3aed;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold gradient-text">SimosMaths</span>
+                            <div class="text-xs text-gray-500 -mt-1">Cours de maths en ligne</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                    <a href="primaire.html" class="text-gray-700 hover:text-blue-600 font-medium">Primaire</a>
+                    <a href="college.html" class="text-blue-600 font-medium border-b-2 border-blue-600">Collège</a>
+                    <a href="lycee.html" class="text-gray-700 hover:text-blue-600 font-medium">Lycée</a>
+                    <a href="index.html#contact" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:shadow-lg">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+                
+                <!-- Menu Mobile Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                <a href="primaire.html" class="block text-gray-700 hover:text-blue-600 font-medium">Primaire</a>
+                <a href="college.html" class="block text-blue-600 font-medium">Collège</a>
+                <a href="lycee.html" class="block text-gray-700 hover:text-blue-600 font-medium">Lycée</a>
+                <a href="index.html#contact" class="block py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg font-bold">
+                    Prendre contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 pb-12 bg-gradient-to-b from-purple-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    <span class="gradient-text">Collège</span> : Choisissez la classe
+                </h1>
+                <p class="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Sélectionnez la classe de votre enfant pour découvrir le programme spécifique et réserver des cours adaptés
+                </p>
+                <div class="cycle-badge mb-12">
+                    <i class="fas fa-sync-alt mr-2"></i>Cycles 3 et 4
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sélection des classes - SECTION PRINCIPALE -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center bg-purple-100 text-purple-800 px-6 py-3 rounded-full text-lg font-bold mb-4">
+                    <i class="fas fa-mouse-pointer mr-3"></i>
+                    CLIQUEZ SUR LA CLASSE DE VOTRE ENFANT
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Cours de maths par classe
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Chaque carte vous permet d'accéder au programme détaillé et de réserver des cours personnalisés
+                </p>
+            </div>
+
+            <!-- Grille des classes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- 6ème -->
+                <a href="sixieme.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                        6ème
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-purple-100 to-violet-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-compass text-3xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">6ème</h3>
+                        <p class="text-gray-500 text-sm">Cycle 3</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Transition</h4>
+                            <p class="text-gray-600">Adaptation au collège</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Nouveautés</h4>
+                            <p class="text-gray-600">Nombres relatifs, proportionnalité</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-purple-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 5ème -->
+                <a href="cinquieme.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #ec4899, #f472b6);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
+                        5ème
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-pink-100 to-rose-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-calculator text-3xl text-pink-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">5ème</h3>
+                        <p class="text-gray-500 text-sm">Cycle 4</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Enjeux</h4>
+                            <p class="text-gray-600">Approfondissement des bases</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Focus</h4>
+                            <p class="text-gray-600">Calcul littéral, statistiques</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-pink-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 4ème -->
+                <a href="quatrieme.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #0ea5e9, #38bdf8);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8);">
+                        4ème
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-sky-100 to-cyan-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-chart-line text-3xl text-sky-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">4ème</h3>
+                        <p class="text-gray-500 text-sm">Cycle 4</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Difficulté</h4>
+                            <p class="text-gray-600">Niveau qui monte</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Spécificités</h4>
+                            <p class="text-gray-600">Pythagore, fonctions</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-sky-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 3ème -->
+                <a href="troisieme.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                        3ème
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-100 to-green-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-medal text-3xl text-emerald-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">3ème</h3>
+                        <p class="text-gray-500 text-sm">Cycle 4 - Brevet</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Objectif</h4>
+                            <p class="text-gray-600">Préparation au Brevet</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Complexité</h4>
+                            <p class="text-gray-600">Thalès, trigonométrie, probas</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-emerald-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CTA principal -->
+            <div class="text-center bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-10">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Préparation spécifique au Brevet pour les 3ème
+                </h3>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Programme intensif avec 98% de réussite et moyenne de 15,2/20 en mathématiques.
+                </p>
+                <a href="troisieme.html" class="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105">
+                    <i class="fas fa-graduation-cap mr-3"></i>Découvrir la préparation Brevet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section matières principales (secondaire) -->
+    <section class="py-16 bg-gradient-to-b from-purple-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Matières principales au collège
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Vue d'ensemble des domaines mathématiques étudiés
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Algèbre -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-purple-500">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-superscript text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Algèbre</h3>
+                    </div>
+                    <ul class="feature-list space-y-3">
+                        <li class="text-gray-600">Calcul littéral</li>
+                        <li class="text-gray-600">Équations et inéquations</li>
+                        <li class="text-gray-600">Identités remarquables</li>
+                        <li class="text-gray-600">Systèmes d'équations</li>
+                        <li class="text-gray-600">Puissances et racines</li>
+                    </ul>
+                </div>
+
+                <!-- Géométrie -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-pink-500">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-drafting-compass text-pink-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Géométrie</h3>
+                    </div>
+                    <ul class="feature-list space-y-3">
+                        <li class="text-gray-600">Théorème de Pythagore</li>
+                        <li class="text-gray-600">Théorème de Thalès</li>
+                        <li class="text-gray-600">Trigonométrie</li>
+                        <li class="text-gray-600">Géométrie dans l'espace</li>
+                        <li class="text-gray-600">Configurations planes</li>
+                    </ul>
+                </div>
+
+                <!-- Statistiques -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-sky-500">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-bar text-sky-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Données et probas</h3>
+                    </div>
+                    <ul class="feature-list space-y-3">
+                        <li class="text-gray-600">Statistiques descriptives</li>
+                        <li class="text-gray-600">Probabilités</li>
+                        <li class="text-gray-600">Représentations graphiques</li>
+                        <li class="text-gray-600">Échantillonnage</li>
+                        <li class="text-gray-600">Arbres de probabilités</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo et description -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">SimosMaths</div>
+                            <div class="text-sm opacity-80">Cours de maths en ligne</div>
+                        </div>
+                    </div>
+                    <p class="opacity-80 mb-6">
+                        Spécialiste des cours de mathématiques pour le collège.
+                    </p>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Classes</h4>
+                    <ul class="space-y-3 opacity-80">
+                        <li><a href="sixieme.html" class="hover:text-blue-300">6ème</a></li>
+                        <li><a href="cinquieme.html" class="hover:text-blue-300">5ème</a></li>
+                        <li><a href="quatrieme.html" class="hover:text-blue-300">4ème</a></li>
+                        <li><a href="troisieme.html" class="hover:text-blue-300">3ème</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4 opacity-80">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <a href="mailto:anagnostou.simos@gmail.com" class="hover:text-blue-300">
+                                anagnostou.simos@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-400"></i>
+                            <span>Sur rendez-vous uniquement</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Retour accueil -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Retour à l'accueil</h4>
+                    <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition">
+                        <i class="fas fa-home mr-2"></i>
+                        Accueil principal
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center opacity-80">
+                © 2024 SimosMaths. Cours de maths pour le collège.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+        
+        // Fermer menu mobile au clic sur un lien
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours de Maths Lycée | SimosMaths - Choix de la classe</title>
+    
+    <!-- Meta tags pour SEO -->
+    <meta name="description" content="Choisissez la classe de votre enfant au lycée : Seconde, Première ou Terminale. Cours de maths adaptés, préparation Bac, spécialité maths.">
+    <meta name="keywords" content="cours maths lycée, choisir classe, seconde, première, terminale, préparation Bac, spécialité maths">
+    <meta name="author" content="Simos ANAGNOSTOU">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .class-card {
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .level-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bac-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+            border: 2px solid #3b82f6;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .specialite-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold gradient-text">SimosMaths</span>
+                            <div class="text-xs text-gray-500 -mt-1">Cours de maths en ligne</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                    <a href="primaire.html" class="text-gray-700 hover:text-blue-600 font-medium">Primaire</a>
+                    <a href="college.html" class="text-gray-700 hover:text-blue-600 font-medium">Collège</a>
+                    <a href="lycee.html" class="text-blue-600 font-medium border-b-2 border-blue-600">Lycée</a>
+                    <a href="index.html#contact" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:shadow-lg">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+                
+                <!-- Menu Mobile Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
+                <a href="primaire.html" class="block text-gray-700 hover:text-blue-600 font-medium">Primaire</a>
+                <a href="college.html" class="block text-gray-700 hover:text-blue-600 font-medium">Collège</a>
+                <a href="lycee.html" class="block text-blue-600 font-medium">Lycée</a>
+                <a href="index.html#contact" class="block py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg font-bold">
+                    Prendre contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 pb-12 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    <span class="gradient-text">Lycée</span> : Choisissez la classe
+                </h1>
+                <p class="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Sélectionnez la classe de votre enfant pour découvrir le programme spécifique et réserver des cours adaptés
+                </p>
+                <div class="bac-badge mb-12">
+                    <i class="fas fa-graduation-cap mr-2"></i>Préparation au Baccalauréat
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sélection des classes - SECTION PRINCIPALE -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full text-lg font-bold mb-4">
+                    <i class="fas fa-mouse-pointer mr-3"></i>
+                    CLIQUEZ SUR LA CLASSE DE VOTRE ENFANT
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Cours de maths par classe
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Chaque carte vous permet d'accéder au programme détaillé et de réserver des cours personnalisés
+                </p>
+            </div>
+
+            <!-- Grille des classes -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Seconde -->
+                <a href="seconde.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #0ea5e9, #38bdf8);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8);">
+                        2nde
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-sky-100 to-cyan-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-compass-drafting text-3xl text-sky-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Seconde</h3>
+                        <p class="text-gray-500 text-sm">Fondamentaux du lycée</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Objectif</h4>
+                            <p class="text-gray-600">Consolidation des bases</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Spécificités</h4>
+                            <p class="text-gray-600">Fonctions, vecteurs, stats</p>
+                        </div>
+                    </div>
+                    <div class="specialite-tag">Choix de spécialité</div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-sky-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Première -->
+                <a href="premiere.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #3b82f6, #6366f1);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #3b82f6, #6366f1);">
+                        1ère
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-star text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Première</h3>
+                        <p class="text-gray-500 text-sm">Approfondissement</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Enjeux</h4>
+                            <p class="text-gray-600">Épreuve anticipée</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Spécificités</h4>
+                            <p class="text-gray-600">Dérivation, suites, probas</p>
+                        </div>
+                    </div>
+                    <div class="specialite-tag">Spécialité maths disponible</div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-blue-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Terminale -->
+                <a href="terminale.html" class="class-card bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl">
+                    <div class="class-card::before" style="background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div>
+                    <div class="level-indicator" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                        Term.
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-purple-100 to-violet-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-trophy text-3xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Terminale</h3>
+                        <p class="text-gray-500 text-sm">Préparation Bac</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Objectif</h4>
+                            <p class="text-gray-600">Réussite au Bac</p>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-gray-900 mb-2 text-sm">Spécificités</h4>
+                            <p class="text-gray-600">Intégrales, complexes, matrices</p>
+                        </div>
+                    </div>
+                    <div class="specialite-tag">Spécialité maths & expert</div>
+                    <div class="mt-8">
+                        <span class="inline-flex items-center text-purple-600 font-bold">
+                            Voir le programme
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CTA principal -->
+            <div class="text-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-10">
+                <div class="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6">
+                    <i class="fas fa-medal mr-3"></i>
+                    98% DE RÉUSSITE AU BAC - MOYENNE 15,8/20
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Programme d'excellence pour la Terminale
+                </h3>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Préparation intensive avec suivi personnalisé, annales corrigées et simulations d'examen.
+                </p>
+                <a href="terminale.html" class="inline-flex items-center px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105">
+                    <i class="fas fa-graduation-cap mr-3"></i>Découvrir la préparation Bac
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section spécialités (secondaire) -->
+    <section class="py-16 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Options et spécialités
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Les parcours mathématiques au lycée
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tronc commun -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Tronc commun</h3>
+                        <p class="text-blue-600 font-medium">2nde et 1ère</p>
+                    </div>
+                    <ul class="feature-list space-y-3">
+                        <li class="text-gray-600">Fonctions de référence</li>
+                        <li class="text-gray-600">Dérivation</li>
+                        <li class="text-gray-600">Suites numériques</li>
+                        <li class="text-gray-600">Probabilités</li>
+                        <li class="text-gray-600">Statistiques</li>
+                    </ul>
+                </div>
+
+                <!-- Spécialité maths -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border-2 border-indigo-100">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-star text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Spécialité maths</h3>
+                        <p class="text-purple-600 font-medium">1ère et Terminale</p>
+                    </div>
+                    <ul class="feature-list space-y-3">
+                        <li class="text-gray-600">Fonctions exponentielles</li>
+                        <li class="text-gray-600">Nombres complexes</li>
+                        <li class="text-gray-600">Calcul intégral</li>
+                        <li class="text-gray-600">Géométrie vectorielle</li>
+                        <li class="text-gray-600">Matrices</li>
+                    </ul>
+                </div>
+
+                <!-- Expert maths -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gem text-amber-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Expert maths</h3>
+                        <p class="text-amber-600 font-medium">Terminale (option)</p>
+                    </div>
+                    <ul class="feature-list space-y-3">
+                        <li class="text-gray-600">Arithmétique</li>
+                        <li class="text-gray-600">Graphes</li>
+                        <li class="text-gray-600">Probabilités avancées</li>
+                        <li class="text-gray-600">Algorithmique</li>
+                        <li class="text-gray-600">Préparation prépa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section orientation -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Préparation aux études supérieures
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Accompagnement pour les orientations post-bac
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-atom text-blue-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900">Prépa scientifique</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        MPSI, PCSI, MP, PC - Programme avancé et problèmes de concours
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-cogs text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900">Écoles d'ingénieurs</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Concours post-bac : Avenir, Puissance Alpha, Geipi Polytech
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900">Licences scientifiques</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Maths, physique, informatique - Transition lycée-université
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo et description -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">SimosMaths</div>
+                            <div class="text-sm opacity-80">Cours de maths en ligne</div>
+                        </div>
+                    </div>
+                    <p class="opacity-80 mb-6">
+                        Expert en préparation au Bac et spécialité maths.
+                    </p>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Classes</h4>
+                    <ul class="space-y-3 opacity-80">
+                        <li><a href="seconde.html" class="hover:text-blue-300">Seconde</a></li>
+                        <li><a href="premiere.html" class="hover:text-blue-300">Première</a></li>
+                        <li><a href="terminale.html" class="hover:text-blue-300">Terminale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4 opacity-80">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <a href="mailto:anagnostou.simos@gmail.com" class="hover:text-blue-300">
+                                anagnostou.simos@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-400"></i>
+                            <span>Sur rendez-vous uniquement</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Retour accueil -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Retour à l'accueil</h4>
+                    <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition">
+                        <i class="fas fa-home mr-2"></i>
+                        Accueil principal
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center opacity-80">
+                © 2024 SimosMaths. Cours de maths pour le lycée.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+        
+        // Fermer menu mobile au clic sur un lien
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
