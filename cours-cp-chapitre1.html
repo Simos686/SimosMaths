@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours CP Chapitre 1 : Nombres et Calcul | SimosMaths</title>
+    
+    <meta name="description" content="Cours complet CP Chapitre 1 : nombres jusqu'à 100, addition, soustraction. Exercices, astuces, méthodes. Apprentissage ludique des mathématiques.">
+    <meta name="keywords" content="cours maths CP chapitre 1, nombres CP, addition CP, soustraction CP, exercices CP, astuces CP">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .fun-font {
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 8px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lesson-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 0 0 0 80px;
+        }
+        
+        .exercise-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 3px solid #f59e0b;
+            position: relative;
+        }
+        
+        .exercise-box::before {
+            content: '🎯 EXERCICE';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: #92400e;
+            border: 2px solid #f59e0b;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 3px solid #10b981;
+        }
+        
+        .fact-box {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 3px solid #4f46e5;
+        }
+        
+        .interactive-element {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px dashed #3b82f6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+        
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .completed { background: #10b981; }
+        .current { background: #3b82f6; animation: pulse 2s infinite; }
+        .upcoming { background: #d1d5db; }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        .number-bubble {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            margin: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .number-bubble:hover {
+            transform: translateY(-5px);
+        }
+        
+        .addition-symbol {
+            width: 40px;
+            height: 40px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .subtraction-symbol {
+            width: 40px;
+            height: 40px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-purple-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">∑</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold gradient-text">SimosMaths</span>
+                            <div class="text-xs text-gray-500 -mt-1">Cours de maths en ligne</div>
+                        </div>
+                    </a>
+                </div>
+                <a href="cp.html" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:shadow-lg">
+                    <i class="fas fa-arrow-left mr-2"></i>Retour au programme CP
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- En-tête du cours -->
+    <section class="pt-12 pb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-4">
+                    <i class="fas fa-graduation-cap mr-3"></i>COURS CP - CHAPITRE 1
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 fun-font">
+                    Découverte des <span class="gradient-text">Nombres jusqu'à 100</span><br>
+                    et premières <span class="gradient-text">Opérations</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Un voyage passionnant dans le monde des nombres avec Mimi la Souris et Max le Renard !
+                </p>
+                
+                <!-- Progression -->
+                <div class="flex justify-center items-center space-x-4 mb-8">
+                    <div class="flex items-center">
+                        <span class="progress-dot completed"></span>
+                        <span class="text-sm text-gray-600">Introduction</span>
+                    </div>
+                    <div class="text-gray-400">→</div>
+                    <div class="flex items-center">
+                        <span class="progress-dot current"></span>
+                        <span class="text-sm font-bold text-gray-900">1.1 Nombres jusqu'à 100</span>
+                    </div>
+                    <div class="text-gray-400">→</div>
+                    <div class="flex items-center">
+                        <span class="progress-dot upcoming"></span>
+                        <span class="text-sm text-gray-600">1.2 Addition</span>
+                    </div>
+                    <div class="text-gray-400">→</div>
+                    <div class="flex items-center">
+                        <span class="progress-dot upcoming"></span>
+                        <span class="text-sm text-gray-600">1.3 Soustraction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leçon 1.1 : Nombres jusqu'à 100 -->
+    <section class="py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lesson-card" style="border-top-color: #4f46e5;">
+                <div class="flex items-start mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-6">
+                        <span class="text-white text-2xl font-bold">1.1</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center mb-2">
+                            <h2 class="text-3xl font-bold text-gray-900 mr-4">Les nombres jusqu'à 100</h2>
+                            <span class="px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold">
+                                <i class="fas fa-star mr-1"></i>Fondamental
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Apprendre à compter, c'est comme apprendre un nouveau langage magique !
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Introduction amusante -->
+                <div class="mb-10 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4 border-4 border-purple-300">
+                            <i class="fas fa-mouse text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Salut ! Je suis Mimi la Souris 🐭</h3>
+                            <p class="text-gray-600">Je vais t'aider à découvrir le monde merveilleux des nombres !</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        Savais-tu qu'avec seulement 10 chiffres (0,1,2,3,4,5,6,7,8,9), on peut écrire TOUS les nombres ? 
+                        C'est comme un jeu de construction infini !
+                    </p>
+                </div>
+
+                <!-- Les 3 super-pouvoirs des nombres -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-magic text-purple-600 mr-3"></i>
+                        Les 3 super-pouvoirs des nombres
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-blue-200">
+                            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-sort-numeric-up text-blue-600 text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">1. Pouvoir d'écriture</h4>
+                            <p class="text-gray-600">Savoir écrire les nombres en chiffres ET en lettres</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-green-200">
+                            <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-balance-scale text-green-600 text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">2. Pouvoir de comparaison</h4>
+                            <p class="text-gray-600">Savoir dire quel nombre est plus grand ou plus petit</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-purple-200">
+                            <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-list-ol text-purple-600 text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">3. Pouvoir d'organisation</h4>
+                            <p class="text-gray-600">Savoir ranger les nombres dans l'ordre</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activité interactive : La file numérique -->
+                <div class="exercise-box">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-gamepad text-yellow-600 mr-2"></i>
+                        Mission 1 : La File Numérique Magique
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-700 mb-4">
+                            Voici une file numérique de 0 à 100. Complète les cases vides !
+                        </p>
+                        
+                        <!-- File numérique interactive -->
+                        <div class="overflow-x-auto mb-6">
+                            <div class="flex space-x-2 p-4 bg-white rounded-lg border-2 border-gray-200 min-w-max">
+                                <!-- Première ligne -->
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-blue-500">0</div>
+                                    <div class="text-xs text-gray-500 mt-1">zéro</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-blue-400">1</div>
+                                    <div class="text-xs text-gray-500 mt-1">un</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-blue-400">2</div>
+                                    <div class="text-xs text-gray-500 mt-1">deux</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-blue-400">3</div>
+                                    <div class="text-xs text-gray-500 mt-1">trois</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-blue-400">4</div>
+                                    <div class="text-xs text-gray-500 mt-1">quatre</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-blue-400">5</div>
+                                    <div class="text-xs text-gray-500 mt-1">cinq</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="text-2xl text-gray-400 mx-4">...</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-purple-500 animate-pulse">?</div>
+                                    <input type="number" class="w-16 h-8 border-2 border-purple-300 rounded text-center mt-1" placeholder="10">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-purple-500 animate-pulse">?</div>
+                                    <input type="number" class="w-16 h-8 border-2 border-purple-300 rounded text-center mt-1" placeholder="20">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="text-2xl text-gray-400 mx-4">...</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="number-bubble bg-red-500">100</div>
+                                    <div class="text-xs text-gray-500 mt-1">cent</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg transition">
+                            <i class="fas fa-check mr-2"></i>Vérifier mes réponses
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3">Exercices à faire :</h4>
+                            <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                                <li>Trouve le nombre caché entre 15 et 17</li>
+                                <li>Place l'étiquette "25" au bon endroit</li>
+                                <li>Compte de 10 en 10 jusqu'à 100</li>
+                                <li>Quel nombre vient juste après 47 ?</li>
+                                <li>Quel nombre vient juste avant 63 ?</li>
+                            </ol>
+                        </div>
+                        <div class="tip-box">
+                            <h4 class="font-bold text-green-900 mb-3 flex items-center">
+                                <i class="fas fa-lightbulb text-green-600 mr-2"></i>
+                                Astuce de Mimi
+                            </h4>
+                            <p class="text-gray-700">
+                                Pour compter de 10 en 10, pense aux doigts ! Chaque dizaine = 1 main complète (10 doigts). 
+                                10, 20, 30... c'est comme compter les mains !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Le mystère des dizaines et unités -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                        <i class="fas fa-search text-blue-600 mr-2"></i>
+                        Le Mystère des Dizaines et Unités
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <p class="text-gray-700 mb-4">
+                                Les nombres sont comme des équipes de joueurs :
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <span class="text-gray-700"><strong>Les dizaines</strong> : ce sont les capitaines (10, 20, 30...)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <span class="text-gray-700"><strong>Les unités</strong> : ce sont les joueurs individuels (1, 2, 3...)</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-6 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+                                <h4 class="font-bold text-yellow-900 mb-2">Exemple avec 24 :</h4>
+                                <p class="text-gray-700">
+                                    24 = <span class="font-bold text-blue-600">2 dizaines</span> + <span class="font-bold text-purple-600">4 unités</span><br>
+                                    C'est comme 2 équipes complètes + 4 joueurs supplémentaires !
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="inline-block p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200">
+                                <div class="text-4xl font-bold text-gray-900 mb-4">24</div>
+                                <div class="flex items-center justify-center space-x-4">
+                                    <div class="text-center">
+                                        <div class="flex space-x-1 mb-2">
+                                            <div class="w-6 h-6 bg-blue-500 rounded"></div>
+                                            <div class="w-6 h-6 bg-blue-500 rounded"></div>
+                                        </div>
+                                        <div class="text-sm text-blue-600 font-bold">2 dizaines</div>
+                                    </div>
+                                    <div class="text-2xl text-gray-400">+</div>
+                                    <div class="text-center">
+                                        <div class="flex space-x-1 mb-2">
+                                            <div class="w-6 h-6 bg-purple-500 rounded"></div>
+                                            <div class="w-6 h-6 bg-purple-500 rounded"></div>
+                                            <div class="w-6 h-6 bg-purple-500 rounded"></div>
+                                            <div class="w-6 h-6 bg-purple-500 rounded"></div>
+                                        </div>
+                                        <div class="text-sm text-purple-600 font-bold">4 unités</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faits intéressants -->
+                <div class="fact-box">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-brain text-indigo-600 mr-2"></i>
+                        Savais-tu que... ?
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-indigo-700 mb-2">Le nombre 100 est spécial !</h4>
+                            <p class="text-gray-700">
+                                100, c'est 10 dizaines, ou 100 unités. C'est un <strong>nombre rond</strong> !
+                                Dans beaucoup de jeux, 100 points = victoire. C'est aussi l'âge des grands-papys et grands-mamies !
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-indigo-700 mb-2">Record du monde 🏆</h4>
+                            <p class="text-gray-700">
+                                Le record du monde pour compter jusqu'à 100 est de... <strong>19 secondes</strong> ! 
+                                Mais toi, prends ton temps pour bien apprendre !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercices supplémentaires -->
+                <div class="mt-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-trophy text-orange-500 mr-2"></i>
+                        Défis supplémentaires
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="interactive-element">
+                            <h4 class="font-bold text-gray-900 mb-3">Défi 1 : La chasse aux nombres</h4>
+                            <p class="text-gray-600 mb-4">Trouve tous les nombres pairs jusqu'à 20</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">2</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">?</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">?</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">?</span>
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-element">
+                            <h4 class="font-bold text-gray-900 mb-3">Défi 2 : Les nombres miroirs</h4>
+                            <p class="text-gray-600 mb-4">Quels nombres se lisent à l'envers ?</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <span class="mr-2">11 →</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded">11 ✓</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="mr-2">23 →</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 rounded">32 ✗</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-element">
+                            <h4 class="font-bold text-gray-900 mb-3">Défi 3 : Écriture en lettres</h4>
+                            <p class="text-gray-600 mb-4">Écris en lettres : 15</p>
+                            <input type="text" class="w-full border-2 border-gray-300 rounded px-3 py-2" placeholder="ta réponse ici...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation entre leçons -->
+            <div class="flex justify-between items-center mt-12">
+                <a href="cp.html" class="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-50 transition">
+                    <i class="fas fa-home mr-2"></i>Retour au programme CP
+                </a>
+                <a href="#leçon2" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:shadow-lg transition flex items-center">
+                    Leçon suivante : L'Addition
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leçon 1.2 : Addition -->
+    <section id="leçon2" class="py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lesson-card" style="border-top-color: #10b981;">
+                <div class="flex items-start mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mr-6">
+                        <span class="text-white text-2xl font-bold">1.2</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center mb-2">
+                            <h2 class="text-3xl font-bold text-gray-900 mr-4">L'Addition : Le Pouvoir d'Ajouter</h2>
+                            <span class="px-4 py-1 bg-green-100 text-green-800 rounded-full text-sm font-bold">
+                                <i class="fas fa-check-circle mr-1"></i>À maîtriser
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            L'addition, c'est comme rassembler des amis pour une grande fête !
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Introduction avec Max -->
+                <div class="mb-10 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4 border-4 border-green-300">
+                            <i class="fas fa-fox text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Salut ! Je suis Max le Renard 🦊</h3>
+                            <p class="text-gray-600">Je suis le champion des additions rapides !</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        L'addition, c'est la première opération magique que tu vas apprendre. 
+                        C'est tellement utile dans la vie : pour compter ses billes, ses bonbons, ses amis...
+                    </p>
+                </div>
+
+                <!-- Les 3 façons de faire une addition -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-plus-circle text-green-600 mr-3"></i>
+                        Les 3 façons de faire une addition
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Méthode 1 -->
+                        <div class="p-6 bg-white rounded-xl border-2 border-green-100">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-green-600 font-bold text-xl">1</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900">Avec les doigts 👆</h4>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                La méthode la plus simple ! Pour 3 + 4 :
+                            </p>
+                            <div class="flex items-center justify-center space-x-4 mb-4">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-gray-900">3 doigts</div>
+                                    <div class="flex space-x-1">
+                                        <div class="w-8 h-8 bg-green-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-green-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-green-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="addition-symbol">+</div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-gray-900">4 doigts</div>
+                                    <div class="flex space-x-1">
+                                        <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="text-2xl font-bold text-gray-400">=</div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-purple-600">7 doigts</div>
+                                    <div class="flex space-x-1">
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Méthode 2 -->
+                        <div class="p-6 bg-white rounded-xl border-2 border-blue-100">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-blue-600 font-bold text-xl">2</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900">Avec des dessins 🎨</h4>
+                            </div>
+                            <div class="flex items-center justify-center space-x-6">
+                                <div class="text-center">
+                                    <div class="text-lg font-bold text-gray-900">3 pommes</div>
+                                    <div class="flex space-x-2 my-2">
+                                        <div class="w-8 h-8 bg-red-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-red-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-red-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="text-2xl font-bold text-gray-900">+</div>
+                                <div class="text-center">
+                                    <div class="text-lg font-bold text-gray-900">2 pommes</div>
+                                    <div class="flex space-x-2 my-2">
+                                        <div class="w-8 h-8 bg-red-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-red-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="text-2xl font-bold text-gray-900">=</div>
+                                <div class="text-center">
+                                    <div class="text-lg font-bold text-purple-600">5 pommes</div>
+                                    <div class="flex space-x-2 my-2">
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Méthode 3 -->
+                        <div class="p-6 bg-white rounded-xl border-2 border-purple-100">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-purple-600 font-bold text-xl">3</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900">En colonne 📝</h4>
+                            </div>
+                            <div class="text-center">
+                                <div class="inline-block bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
+                                    <div class="flex items-end mb-2">
+                                        <div class="text-right mr-4">
+                                            <div class="text-gray-600 text-sm">unités</div>
+                                            <div class="text-gray-600 text-sm">dizaines</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold">2 5</div>
+                                            <div class="text-2xl font-bold">+ 1 4</div>
+                                            <div class="border-t-2 border-gray-400 mt-1 pt-1 text-2xl font-bold text-purple-600">3 9</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mt-4">On aligne les unités sous les unités, les dizaines sous les dizaines !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Le passage par 10 -->
+                <div class="exercise-box">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-bridge text-orange-600 mr-2"></i>
+                        Le Passage par 10 : Le Pont Magique
+                    </h3>
+                    
+                    <p class="text-gray-700 mb-6">
+                        Quand on ajoute et qu'on dépasse 10, c'est comme traverser un pont magique !
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3">Exemple : 8 + 5</h4>
+                            <ol class="list-decimal pl-5 space-y-3 text-gray-700">
+                                <li>Je pars de 8 🚶‍♂️</li>
+                                <li>Je vais jusqu'à 10 : il faut 2 (8 + 2 = 10) 🌉</li>
+                                <li>Il me reste 3 à ajouter (5 - 2 = 3)</li>
+                                <li>10 + 3 = 13 🎉</li>
+                            </ol>
+                            
+                            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                <h4 class="font-bold text-blue-900 mb-2">Astuce de Max :</h4>
+                                <p class="text-gray-700">
+                                    Pour 8 + 5, pense à : 8 + 2 + 3 = 13<br>
+                                    Toujours compléter à 10 d'abord !
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="inline-block p-6 bg-white rounded-2xl shadow-lg">
+                                <div class="flex items-center justify-center space-x-4 mb-4">
+                                    <div class="text-3xl font-bold text-gray-900">8</div>
+                                    <div class="addition-symbol">+</div>
+                                    <div class="text-3xl font-bold text-gray-900">5</div>
+                                    <div class="text-3xl font-bold text-gray-900">=</div>
+                                    <div class="text-3xl font-bold text-purple-600">13</div>
+                                </div>
+                                <div class="text-gray-600">
+                                    <div class="flex items-center justify-center space-x-2 mb-2">
+                                        <span>8 + 2</span>
+                                        <span class="text-green-600">→ 10</span>
+                                    </div>
+                                    <div class="flex items-center justify-center space-x-2">
+                                        <span>10 + 3</span>
+                                        <span class="text-purple-600">→ 13</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- La table d'addition -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                        <i class="fas fa-table text-indigo-600 mr-2"></i>
+                        La Table d'Addition : Ton Nouveau Super-Pouvoir
+                    </h3>
+                    
+                    <p class="text-gray-700 mb-6">
+                        En CP, tu dois connaître certaines additions par cœur. Ce sont tes "super-pouvoirs" de calcul !
+                    </p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border-2 border-gray-300 rounded-lg">
+                            <thead>
+                                <tr class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">+</th>
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">0</th>
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">1</th>
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">2</th>
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">3</th>
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">4</th>
+                                    <th class="py-3 px-4 text-center border-r-2 border-white">5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-3 px-4 text-center font-bold bg-blue-50 border-r-2 border-gray-300">1</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">1</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300 bg-blue-100 font-bold">2</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">3</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">4</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">5</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">6</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4 text-center font-bold bg-blue-50 border-r-2 border-gray-300">2</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">2</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">3</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300 bg-blue-100 font-bold">4</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">5</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">6</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">7</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 text-center font-bold bg-blue-50 border-r-2 border-gray-300">3</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">3</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">4</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">5</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300 bg-blue-100 font-bold">6</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">7</td>
+                                    <td class="py-3 px-4 text-center border-r-2 border-gray-300">8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+                        <h4 class="font-bold text-yellow-900 mb-2">Les additions "amies" à connaître par cœur :</h4>
+                        <div class="flex flex-wrap gap-3 mt-2">
+                            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-bold">1+1=2</span>
+                            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-bold">2+2=4</span>
+                            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-bold">3+3=6</span>
+                            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-bold">4+4=8</span>
+                            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-bold">5+5=10</span>
+                            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-bold">5+6=11</span>
+                            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-bold">6+6=12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jeu d'addition -->
+                <div class="interactive-element">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-dice text-purple-600 mr-2"></i>
+                        Jeu : L'Attaque des Additions
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3">Règles du jeu :</h4>
+                            <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                                <li>Choisis un niveau (facile, moyen, difficile)</li>
+                                <li>Résous 10 additions en 2 minutes</li>
+                                <li>Chaque bonne réponse = 1 point</li>
+                                <li>10/10 = Champion des additions ! 🏆</li>
+                            </ol>
+                            
+                            <div class="mt-6">
+                                <button class="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:shadow-lg transition mr-4">
+                                    <i class="fas fa-play mr-2"></i>Commencer
+                                </button>
+                                <button class="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-50 transition">
+                                    <i class="fas fa-chart-bar mr-2"></i>Voir mes scores
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="inline-block p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-200">
+                                <h4 class="font-bold text-purple-900 mb-4">Addition à résoudre :</h4>
+                                <div class="text-4xl font-bold text-gray-900 mb-6">7 + 6 = ?</div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <button class="px-4 py-3 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50">12</button>
+                                    <button class="px-4 py-3 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50">14</button>
+                                    <button class="px-4 py-3 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50">13</button>
+                                    <button class="px-4 py-3 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50">11</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-6">Tu as terminé cette leçon ? Bravo ! 🎉</h3>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Continue ton apprentissage avec les leçons suivantes, ou entraîne-toi avec les exercices.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="cp.html" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg transition">
+                        <i class="fas fa-book mr-2"></i>Voir tous les chapitres CP
+                    </a>
+                    <a href="index.html#contact" class="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-calendar-check mr-2"></i>Besoin d'aide ?
+                    </a>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-gray-800 text-gray-400 text-sm">
+                    <p>© 2024 SimosMaths - Cours interactif CP Chapitre 1</p>
+                    <p class="mt-2">Conçu avec ❤️ pour les apprentis mathématiciens</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts interactifs -->
+    <script>
+        // Animation des bulles de nombres
+        document.querySelectorAll('.number-bubble').forEach(bubble => {
+            bubble.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+
+        // Vérification des réponses
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Vérifier')) {
+                button.addEventListener('click', function() {
+                    alert('Bravo ! Tu progresses bien ! Continue comme ça ! 🎉');
+                });
+            }
+        });
+
+        // Jeu d'addition
+        const additionButtons = document.querySelectorAll('.interactive-element button');
+        additionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent === '13') {
+                    this.style.backgroundColor = '#10b981';
+                    this.style.color = 'white';
+                    alert('Exact ! 7 + 6 = 13 ! Super calcul ! ✨');
+                } else {
+                    this.style.backgroundColor = '#ef4444';
+                    this.style.color = 'white';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 1000);
+                }
+            });
+        });
+
+        // Animation de défilement fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
